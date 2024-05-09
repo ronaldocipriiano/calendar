@@ -49,3 +49,16 @@ btnHoliday.addEventListener('click', function() {
     }
   });
 });
+
+const btnFriday = document.getElementById('btn-friday');
+
+btnFriday.addEventListener('click', () => {
+  const fridays = document.querySelectorAll('.friday');
+  fridays.forEach((day, index) => {
+    if (day.innerHTML !== 'Sextou!') {
+      day.innerHTML = 'Sextou!';
+    } else {
+      day.innerHTML = index + 1;
+    }
+  });
+});
