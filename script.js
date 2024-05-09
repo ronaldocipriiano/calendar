@@ -74,3 +74,37 @@ days.forEach(day => {
     event.target.style.fontSize = '20px';
   });
 });
+
+const tasks = document.querySelectorAll('.task');
+
+tasks.forEach(task => {
+  task.addEventListener('click', ()=> {
+    if (task.classList.contains('selected')) {
+      task.classList.remove('selected');
+    } else {
+      tasks.forEach(task => task.classList.remove('selected'));
+      task.classList.add('selected');
+    }
+  });
+});
+
+const calendarDays = document.querySelectorAll('.day');
+calendarDays.forEach(day => {
+  day.addEventListener('click', function() {
+    const selectedTask = document.querySelector('.task.selected');
+    if (selectedTask) {
+      this.style.color = window.getComputedStyle(selectedTask).getPropertyValue('background-color');
+      this.addEventListener('click', function() {
+        this.style.color = 'rgb(119, 119, 119)';
+      }, { once: true });
+    }
+  });
+});
+
+const selectedTasks = document.querySelectorAll('.task.selected');
+
+selectedTasks.forEach(task => {
+  task.addEventListener('click', ()=> {
+    task.classList.remove('selected');
+  });
+});
