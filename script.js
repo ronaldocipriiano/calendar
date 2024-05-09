@@ -62,3 +62,15 @@ btnFriday.addEventListener('click', () => {
     }
   });
 });
+
+const days = document.querySelectorAll('.day');
+
+days.forEach(day => {
+  day.addEventListener('mouseover', (event) => {
+    event.target.style.fontSize = '30px';
+  });
+
+  day.addEventListener('mouseout', function(event) {
+    event.target.style.fontSize = '20px';
+  });
+});
