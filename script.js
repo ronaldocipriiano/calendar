@@ -36,3 +36,16 @@ const createCalendar = () => {
 }
 
 createCalendar();
+
+const btnHoliday = document.getElementById('btn-holiday');
+
+btnHoliday.addEventListener('click', function() {
+  const holidays = document.querySelectorAll('.holiday');
+  holidays.forEach(day => {
+    if (day.style.backgroundColor !== 'red') {
+      day.style.backgroundColor = 'red';
+    } else {
+      day.style.backgroundColor = 'rgb(238, 238, 238)';
+    }
+  });
+});
