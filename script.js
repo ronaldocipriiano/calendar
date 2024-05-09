@@ -108,3 +108,31 @@ selectedTasks.forEach(task => {
     task.classList.remove('selected');
   });
 });
+
+const btnAdd = document.getElementById('btn-add');
+const taskInput = document.getElementById('task-input');
+const taskList = document.getElementById('task-list');
+
+const addTaskToList = () => {
+  const taskText = taskInput.value.trim();
+
+  if (taskText === '') {
+    alert('Por favor, insira uma tarefa');
+    return;
+  }
+
+  const task = document.createElement('li');
+  task.innerHTML = taskText;
+  task.classList.add('task');
+  taskList.appendChild(task);
+
+  taskInput.value = '';
+};
+
+btnAdd.addEventListener('click', addTaskToList);
+
+taskInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    addTaskToList();
+  }
+});
